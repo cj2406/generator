@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Teachers</title>
+  <style>
+    :root {
+      --primary: #344289;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+            font-size: small;
+
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg);
+      color: #111827;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .nav a {
+      display: block;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .profile {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* Button */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #1e4fd6;
+    }
+
+    /* Table */
+    .teachers-table {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) td {
+      background: #fdfdfd;
+    }
+
+    tr:hover td {
+      background: #f1f5ff;
+    }
+
+    /* Status badge */
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .active {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .inactive {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        padding: 16px;
+      }
+
+      table {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Admin Panel</h1>
+    <nav class="nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="timetable.html">Timetables</a>
+      <a href="lecturers.html" class="active">lecturers</a>
+      <a href="about.html">about</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2>Teachers</h2>
+      <div class="profile"></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn">+ Add New Teacher</button>
+    </div>
+
+    <section class="teachers-table">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Subject</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Aaron chukwudi</td>
+            <td>Mathematics</td>
+            <td>johnsmith@babcock.edu</td>
+            <td>+234 940-145-9087</td>
+            <td><span class="status active">Active</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Dr ayo aduni</td>
+            <td>English</td>
+            <td>ayo@babcock.edu</td>
+            <td>+234 940-145-9087</td>
+            <td><span class="status active">Active</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Dr David agu</td>
+            <td>Physics</td>
+            <td>david@babcock.edu</td>
+            <td>+234 940-145-9087</td>
+            <td><span class="status inactive">Inactive</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Dr ogunleye .o</td>
+            <td>Chemistry</td>
+            <td>oremi@babcock.edu</td>
+            <td>+234 940-145-9087</td>
+            <td><span class="status active">Active</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Dr williams agbasi</td>
+            <td>History</td>
+            <td>pius@babcock.edu</td>
+            <td>+234 940-145-9087</td>
+            <td><span class="status active">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

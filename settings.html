@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Settings</title>
+  <style>
+    :root {
+  --primary: #344289;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+      font-size: small;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      background: var(--bg);
+      color: #111827;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+
+    .nav a {
+      display: block;
+      padding: 10px 12px;
+      margin-bottom: 6px;
+      border-radius: 8px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Main */
+    .main {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .logout-btn {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 5px;
+      text-decoration: none;
+      font-size: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #c9302c;
+    }
+
+    /* Settings Section */
+    .settings-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .settings-section h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .settings-section p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg);
+    }
+
+    /* Toggle Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 46px;
+      height: 24px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #d1d5db;
+      transition: 0.3s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+
+    /* Lecturer Permissions Table */
+    .permissions {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+    }
+
+    .permissions th,
+    .permissions td {
+      border: 1px solid var(--border);
+      padding: 10px;
+      text-align: left;
+    }
+
+    .permissions th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #1e4fd6;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main {
+        padding: 16px;
+      }
+      table {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Admin Panel</h1>
+    <nav class="nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="timetable.html">Timetables</a>
+      <a href="lecturers.html">lecturers</a>
+      <a href="about.html">about</a>
+      <a href="#" class="active">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2>Settings</h2>
+      <div class="topbar-right">
+     <img src="images/captiveportal-logo.jpeg" class="profile">
+        <a href="login.html" class="logout-btn">Logout</a>
+      </div>
+    </div>
+
+    <!-- General Settings -->
+    <section class="settings-section">
+      <h3>General Settings</h3>
+      <p>Manage basic configuration of the timetable system.</p>
+
+    
+
+      <div class="form-group">
+        <label for="semester">Current Semester</label>
+        <select id="semester">
+          <option>Fall 2025</option>
+          <option>Spring 2026</option>
+          <option>Summer 2026</option>
+        </select>
+      </div>
+
+      <button class="btn">Save Changes</button>
+    </section>
+
+    <!-- Lecturer Permissions -->
+    <section class="settings-section">
+      <h3>Lecturer Permissions</h3>
+      <p>Control which features lecturers have access to.</p>
+
+      <table class="permissions">
+        <thead>
+          <tr>
+            <th>Lecturer</th>
+            <th>Can Edit Timetable</th>
+            <th>Can View All Classes</th>
+            <th>Can Add Substitutes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dr ogunleye .o</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Aaron chukwudi</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>Dr ayo aduni</td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" checked />
+                <span class="slider"></span>
+              </label>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider"></span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top: 16px;">
+        <button class="btn">Save Permissions</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

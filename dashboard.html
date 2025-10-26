@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Timetable Generator</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <h1>Admin Panel</h1>
+    <nav class="nav">
+      <a href="#" class="active">Dashboard</a>
+      <a href="timetable.html">Timetables</a>
+      <a href="lecturers.html">Lecturers</a>
+      <a href="about.html">About</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h2>Department Timetable Generator</h2>
+      <img src="captiveportal-logo.jpeg" class="profile" alt="Admin Profile" />
+    </div>
+
+    <section class="welcome">
+      <h3>Welcome!</h3>
+      <p>Select a department below to view its course list and automatically open the timetable generator for that department.</p>
+    </section>
+
+    <!-- Department Selection -->
+    <section class="departments">
+      <h3>Select Department</h3>
+      <div class="dept-selector">
+        <select id="department-select">
+          <option value="">-- Choose Department --</option>
+          <option value="cs">Computer Science</option>
+          <option value="math">Mathematics</option>
+          <option value="eng">Engineering</option>
+          <option value="bio">Biology</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Course List -->
+    <section class="course-list" id="course-section" style="display:none;">
+      <h3>Courses in <span id="dept-name"></span></h3>
+      <ul id="course-list"></ul>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

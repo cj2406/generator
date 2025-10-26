@@ -1,0 +1,219 @@
+:root {
+  --primary: #344289;
+  --bg: #f9fafb;
+  --white: #ffffff;
+  --gray: #6b7280;
+  --border: #e5e7eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  font-size: small;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: #111827;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.nav a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  color: var(--gray);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.topbar h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+  border-radius: 9%;
+  background: var(--border);
+}
+
+/* Welcome Message */
+.welcome {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.welcome h3 {
+  font-size: 1.0rem;
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Departments */
+.departments {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.dept-selector {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dept-selector select {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  flex: 1;
+}
+
+/* Course List */
+.course-list {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.course-list ul {
+  list-style: none;
+  margin-top: 12px;
+}
+
+.course-list li {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.btn:hover {
+  background: #1e4fd6;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    padding: 16px;
+  }
+}
+/* ABOUT PAGE */
+.about {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  line-height: 1.6;
+  color: #111827;
+}
+
+.about h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.about p {
+  color: var(--gray);
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.about ul {
+  list-style: disc inside;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.about li {
+  margin-bottom: 6px;
+}
+
+.info-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-top: 16px;
+}
+
+.info-box h4 {
+  margin: 8px 0 4px;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+.info-box p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: #111827;
+}
